@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <link rel="stylesheet" href="../CSS/forget.css">
+    <script src="../JS/register_validation.js"></script>
+    <title>Forget password</title>
+</head>
+<body>
+    <div class="forget-password">
+        <div class="column">
+            <div class="image">
+                <img src="../assets/google.jpg" width="80" alt="Google Image"
+                class="logo">
+            </div>
+            <div>
+                <h1>Find your email</h1>
+            </div>
+            <div>
+                <label>Enter your phone number or recovery email</label>
+            </div>
+            <div>
+                <input type="text" id="username" placeholder="Phone number or email" onchange="validateEmail()">
+                <span id="emailError"></span>
+            </div>
+            <div class="nextBtn">
+                <a href="../HTML/forget_next.html"><button class="button">Next</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
