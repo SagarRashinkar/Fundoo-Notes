@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../CSS/sign_in.css">
-    <script src="../JS/register_validation.js"></script>
-    <title>Login Fundoo Account</title>
+    <script src="../Server/crud_operation.js"></script>
+    <script src="../JS/validation.js"></script>
+    <title>Sign in Fundoo Account</title>
 </head>
 <body>
     <div class="forget-password">
@@ -27,24 +28,28 @@
                 <input type="text" id="username" placeholder="Email or phone" onchange="validateEmail()">
                 <span id="emailError"></span>
             </div>
-            <div>
+            <div class="forget-span">
                 <span>
                     <a href="../HTML/forget.html" class="forgot">Forgot email?</a>
                 </span>
             </div>
             <div>
-                <input type="text" id="password" placeholder="Enter your password">
+                <input type="password" id="password" placeholder="Enter your password" onchange="validatePassword()">
                 <span id="passwordError"></span>
+            </div>
+            <div class="check-box">
+                <input type="checkbox" id="showpass" onclick="showPass()">
+                <label for="showpass" id="showpass-txt">Show password</label>
             </div>
             <div>
                 <label class="mylabel">Not your computer? Use Guest mode to sign in privately.</label>
             </div>
             <div class="row" id="option-btn">
                 <div class="create-account">
-                    <a href="../HTML/register.html"><button class="button1">Create Account</button></a>
+                    <a href="../HTML/register.html"><button class="button1" type="button">Create Account</button></a>
                 </div>
                 <div class="nextBtn">
-                    <a href="../forget_next.html"><button class="button2">Login</button></a>
+                    <a href="#login"><button class="button2" type="button" onclick="loginValidation()">Login</button></a>
                 </div>
             </div>
         </div>
