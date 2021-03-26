@@ -134,3 +134,14 @@ function loginValidation() {
         loginUser(loginData);
     }
 }
+/*----------------------------------------------- Password Reset ----------------------------------------------------------*/
+function resetEmail() {
+    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); }
+    if (email_flag == true) {
+        let email = document.getElementById('username').value;
+        let emailData = {
+            "email": email
+        }
+        resetPassword(emailData);
+    }
+}

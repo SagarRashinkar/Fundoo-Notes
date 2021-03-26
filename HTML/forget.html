@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../CSS/forget.css">
+    <script src="../Server/crud_operation.js"></script>
     <script src="../JS/validation.js"></script>
     <title>Forget password</title>
 </head>
@@ -15,8 +16,7 @@
     <div class="forget-password">
         <div class="column">
             <div class="image">
-                <img src="../assets/google.jpg" width="80" alt="Google Image"
-                class="logo">
+                <div class="img1">Fundoo</div>
             </div>
             <div>
                 <h1>Find your email</h1>
@@ -25,11 +25,11 @@
                 <label>Enter your phone number or recovery email</label>
             </div>
             <div>
-                <input type="text" id="username" placeholder="Phone number or email" onchange="validateEmail()">
+                <input type="text" id="username" placeholder="Enter your email" onchange="validateEmail()">
                 <span id="emailError"></span>
             </div>
             <div class="nextBtn">
-                <a href="../HTML/forget_next.html"><button class="button">Next</button></a>
+                <a href="#forget"><button class="button" onclick="resetEmail()">Submit</button></a>
             </div>
         </div>
     </div>

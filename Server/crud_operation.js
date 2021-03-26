@@ -42,3 +42,25 @@ function loginUser(loginData) {
         }
     })
 }
+
+/*----------------------------------------------- Login API Call ----------------------------------------------------------*/
+
+function resetPassword(emailData) {
+    console.log("In Server...");
+    console.log(emailData);
+    $.ajax({
+        url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/reset',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        datatype: 'json',
+        data: JSON.stringify(emailData),
+        success: function (data) {
+            console.log(data);
+            alert("Reset link sent sucessfully");
+        },
+        error: function (err) {
+            alert("Email address not registered...")
+            console.log(err);
+        }
+    })
+}
