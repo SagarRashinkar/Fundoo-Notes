@@ -12,11 +12,12 @@ function postData(userData) {
         data: JSON.stringify(userData),
         success: function (data) {
             console.log(data);
-            alert("User registered sucessfully");
+            showSnackBar("User registered sucessfully");
             window.location.href = "../HTML/sign_in.html";
         },
         error: function (err) {
             console.log(err);
+            showSnackBar("Already registered with given email");
         }
     })
 }
@@ -34,16 +35,16 @@ function loginUser(loginData) {
         data: JSON.stringify(loginData),
         success: function (data) {
             console.log(data);
-            alert("Login sucessfully");
+            showSnackBar("Login sucessfully");
         },
         error: function (err) {
-            alert("Please provide valid credentials...")
+            showSnackBar("Please provide valid credentials...")
             console.log(err);
         }
     })
 }
 
-/*----------------------------------------------- Login API Call ----------------------------------------------------------*/
+/*----------------------------------------------- Reset Password API Call ----------------------------------------------------------*/
 
 function resetPassword(emailData) {
     console.log("In Server...");
@@ -56,10 +57,10 @@ function resetPassword(emailData) {
         data: JSON.stringify(emailData),
         success: function (data) {
             console.log(data);
-            alert("Reset link sent sucessfully");
+            showSnackBar("Reset link sent sucessfully");
         },
         error: function (err) {
-            alert("Email address not registered...")
+            showSnackBar("Email address not registered...")
             console.log(err);
         }
     })

@@ -3,28 +3,32 @@ var fName_flag, lName_flag, email_flag, password_flag, confirmPass_flag;
 /*------------------------------------------------ FirstName Validations ------------------------------------------------------*/
 
 function validateFirstName() {
+    let border = document.getElementById("firstname");
     let fName = document.getElementById('firstname').value;
     let pattern = RegExp("[A-Z][a-z]{2,}");
     if (pattern.test(fName)) {
         fName_flag = true;
+        $("#fNameError").text("");
+        border.style.borderColor = "gainsboro";
     } else {
         fName_flag = false;
         $("#fNameError").text("enter valid first name");
-        let border = document.getElementById("firstname");
         border.style.borderColor = "red";
     }
 }
 /*------------------------------------------------ LastName Validations ------------------------------------------------------*/
 
 function validateLastName() {
+    let border = document.getElementById("lastname");
     let lName = document.getElementById('lastname').value;
     let pattern = RegExp("[A-Z][a-z]{2,}");
     if (pattern.test(lName)) {
         lName_flag = true;
+        $("#lNameError").text("");
+        border.style.borderColor = "gainsboro";
     } else {
         lName_flag = false;
         $("#lNameError").text("enter valid last name");
-        let border = document.getElementById("lastname");
         border.style.borderColor = "red";
     }
 }
@@ -32,14 +36,16 @@ function validateLastName() {
 /*------------------------------------------------ Email Validations ------------------------------------------------------*/
 
 function validateEmail() {
+    let border = document.getElementById("username");
     let email = document.getElementById('username').value;
     let pattern = RegExp("^[a-zA-Z]{4,}[a-zA-Z0-9\.\!\_]*\@[a-z]*\.(co|in|com)$");
     if (pattern.test(email)) {
         email_flag = true;
+        $("#emailError").text("");
+        border.style.borderColor = "gainsboro";
     } else {
         email_flag = false;
         $("#emailError").text("enter valid email address");
-        let border = document.getElementById("username");
         border.style.borderColor = "red";
     }
 }
@@ -47,29 +53,33 @@ function validateEmail() {
 /*------------------------------------------------ Password Validations ------------------------------------------------------*/
 
 function validatePassword() {
+    let border = document.getElementById("password");
     let passwd = document.getElementById('password').value;
     let passPattern = RegExp("^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$");
     if (passPattern.test(passwd)) {
         console.log("Password Matched");
         password_flag = true;
+        $("#passwordError").text("");
+        border.style.borderColor = "gainsboro";
     }
     else {
         password_flag = false;
         $("#passwordError").text("enter valid password");
-        let border = document.getElementById("password");
         border.style.borderColor = "red";
     }
 }
 function validateConfirmPassword() {
+    let border = document.getElementById("confirm");
     let pass = document.getElementById('password').value;
     let confirmPass = document.getElementById('confirm').value;
     if (pass === confirmPass) {
         confirmPass_flag = true;
+        $("#confirmPasswordError").text("");
+        border.style.borderColor = "gainsboro";
     }
     else {
         confirmPass_flag = false;
         $("#confirmPasswordError").text("password didn't matched");
-        let border = document.getElementById("confirm");
         border.style.borderColor = "red";
     }
 }
@@ -95,14 +105,24 @@ function showPass() {
         z.type = "password";
     }
 }
+
+/*-------------------------------------------------- SnackBar Here --------------------------------------------------------*/
+function showSnackBar(msg) {
+    $('#snackbar').addClass('display');
+    $('#snackbar').html(msg);
+    setTimeout(() => {
+        $('#snackbar').removeClass('display');
+    }, 2000)
+}
+
 /*-------------------------------------------------- Field Validations --------------------------------------------------------*/
 // let data;
 function checkFields() {
-    if (document.getElementById('firstname').value == "") { $('#fNameError').text("First name required..."); }
-    if (document.getElementById('lastname').value == "") { $('#lNameError').text("Last name required..."); }
-    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); }
-    if (document.getElementById('password').value == "") { $('#passwordError').text("Password required..."); }
-    if (document.getElementById('confirm').value == "") { $('#confirmPasswordError').text("Password match required..."); }
+    if (document.getElementById('firstname').value == "") { $('#fNameError').text("First name required..."); $(this).css('border-color', 'red'); }
+    if (document.getElementById('lastname').value == "") { $('#lNameError').text("Last name required..."); $(this).css('border-color', 'red'); }
+    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); $(this).css('border-color', 'red'); }
+    if (document.getElementById('password').value == "") { $('#passwordError').text("Password required..."); $(this).css('border-color', 'red'); }
+    if (document.getElementById('confirm').value == "") { $('#confirmPasswordError').text("Password match required..."); $(this).css('border-color', 'red'); }
 
     if (fName_flag && lName_flag && email_flag && password_flag && confirmPass_flag == true) {
         let fname = document.getElementById('firstname').value;
