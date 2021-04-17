@@ -118,11 +118,11 @@ function showSnackBar(msg) {
 /*-------------------------------------------------- Field Validations --------------------------------------------------------*/
 // let data;
 function checkFields() {
-    if (document.getElementById('firstname').value == "") { $('#fNameError').text("First name required..."); $(this).css('border-color', 'red'); }
-    if (document.getElementById('lastname').value == "") { $('#lNameError').text("Last name required..."); $(this).css('border-color', 'red'); }
-    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); $(this).css('border-color', 'red'); }
-    if (document.getElementById('password').value == "") { $('#passwordError').text("Password required..."); $(this).css('border-color', 'red'); }
-    if (document.getElementById('confirm').value == "") { $('#confirmPasswordError').text("Password match required..."); $(this).css('border-color', 'red'); }
+    if (document.getElementById('firstname').value == "") { $('#fNameError').text("First name required..."); $('#firstname').css('border-color', 'red'); }
+    if (document.getElementById('lastname').value == "") { $('#lNameError').text("Last name required..."); $('#lastname').css('border-color', 'red'); }
+    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); $('#username').css('border-color', 'red'); }
+    if (document.getElementById('password').value == "") { $('#passwordError').text("Password required..."); $('#password').css('border-color', 'red'); }
+    if (document.getElementById('confirm').value == "") { $('#confirmPasswordError').text("Password match required..."); $('confirm').css('border-color', 'red'); }
 
     if (fName_flag && lName_flag && email_flag && password_flag && confirmPass_flag == true) {
         let fname = document.getElementById('firstname').value;
@@ -142,8 +142,8 @@ function checkFields() {
 }
 /*----------------------------------------------- Login Validation ----------------------------------------------------------*/
 function loginValidation() {
-    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); }
-    if (document.getElementById('password').value == "") { $('#passwordError').text("Password required..."); }
+    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); $('#username').css('border-color', 'red'); }
+    if (document.getElementById('password').value == "") { $('#passwordError').text("Password required..."); $('#password').css('border-color', 'red'); }
     if (email_flag && password_flag == true) {
         let email = document.getElementById('username').value;
         let password = document.getElementById('password').value;
@@ -156,7 +156,7 @@ function loginValidation() {
 }
 /*----------------------------------------------- Password Reset ----------------------------------------------------------*/
 function resetEmail() {
-    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); }
+    if (document.getElementById('username').value == "") { $('#emailError').text("Email required..."); $('#username').css('border-color', 'red'); }
     if (email_flag == true) {
         let email = document.getElementById('username').value;
         let emailData = {
